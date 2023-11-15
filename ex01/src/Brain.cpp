@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:06:24 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/15 16:30:09 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/15 17:19:55 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ Brain::Brain(void) {
 }
 
 Brain::~Brain(void) {
-    std::cout << COLOR("Brain destructor called.", RED) << std::endl;
+    if (SHOWMSG) {
+        std::cout << COLOR("Brain destructor called.", RED) << std::endl;
+    }
 }
 
 Brain::Brain(const Brain &src) {

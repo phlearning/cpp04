@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:26:39 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 15:27:50 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/16 15:32:29 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,23 @@
 #include <iostream>
 
 int main() {
-    MY_SEP();
-    const Animal *j = new Dog();
-    const Animal *i = new Cat();
+    MY_SEP2("Given Tests");
+    const AAnimal *j = new Dog();
+    const AAnimal *i = new Cat();
+   
 
     delete j; // should not create a leak
     delete i;
-    
-    int N = 11;
-    Animal *animalGroup[N];
+    MY_SEP2("myTests");
+
+    /* -------------------------------------------------------------------------- */
+    // When using a abstract class we cannot instantiate them directly
+    // For example: 
+    // AAnimal myAnimal         // Will not work
+    /* -------------------------------------------------------------------------- */
+
+    int N = 2;
+    AAnimal *animalGroup[N];
     for (int k = 0; k < N; k++) {
         if (k < N / 2) {
             animalGroup[k] = new Cat();
@@ -47,6 +55,7 @@ int main() {
     for (int k = 0; k < N; k++) {
         delete animalGroup[k];
     }
+
 
     return 0;
 }

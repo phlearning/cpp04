@@ -6,11 +6,11 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:24:45 by pvong             #+#    #+#              #
-#    Updated: 2023/11/16 15:20:59 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/16 15:34:48 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animal
+NAME = amateria
 
 # Compilation 
 CXX = g++

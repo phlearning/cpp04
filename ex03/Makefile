@@ -6,7 +6,7 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:24:45 by pvong             #+#    #+#              #
-#    Updated: 2023/11/16 15:34:48 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/17 13:36:09 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,9 @@ HEADERS = $(wildcard $(INC_DIR)/*.hpp)
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		Brain.cpp
+SRC = AMateria.cpp \
+
+
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))

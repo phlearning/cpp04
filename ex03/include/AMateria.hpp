@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:35:19 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 15:51:44 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/17 13:47:09 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 #define AMATERIA_HPP
 
 #include "ICharacter.hpp"
+#include "myColors.hpp"
 #include <string>
 
 class AMateria {
 
 public:
-    AMateria(std::string const &type);
+    AMateria(std::string type);
     AMateria(void);
-    AMateria(AMateria const &src);
-    AMateria &operator=(AMateria const &other);
+    AMateria(const AMateria &src);
+    AMateria &operator=(const AMateria &other);
     virtual ~AMateria(void);
 
     std::string const &getType() const;

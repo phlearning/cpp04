@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:26:39 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 15:27:50 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:39:25 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ int main() {
     delete j; // should not create a leak
     delete i;
     
+    // Cat c;
+
+    // c.setIdea("hello", 0);
+    // std::cout << "idea: " << c.getIdea(0) << std::endl;
+    // std::cout << "idea: " << c.getIdea(111) << std::endl;
+
     int N = 11;
     Animal *animalGroup[N];
     for (int k = 0; k < N; k++) {

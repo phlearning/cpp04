@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:58:33 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/15 16:26:04 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:29:43 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 
+#define MAX_IDEAS 100
+
 class Brain {
 
 public:
@@ -22,9 +24,12 @@ public:
     Brain(const Brain &src);
     Brain &operator=(const Brain &other);
     ~Brain(void);
+    
+    void setIdea(std::string idea, int index);
+    std::string getIdea(int index);
 
 private:
-    std::string ideas[100];
+    std::string _ideas[100];
 
 };
 

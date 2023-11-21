@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 15:41:20 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 15:14:27 by pvong            ###   ########.fr       */
+/*   Created: 2023/11/21 14:44:17 by pvong             #+#    #+#             */
+/*   Updated: 2023/11/21 17:59:24 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-#include "AMateria.hpp"
 #include "ICharacter.hpp"
 #include <string>
 
-class Ice : public AMateria {
+#define MAX_SLOTS 4
+
+class Character : public ICharacter {
 
 public:
-    Ice(void);
-    virtual ~Ice(void);
+    Character(void);
+    Character(std::string name);
+    Character(const Character &src);
+    Character &operator=(const Character &other);
 
-    virtual AMateria *clone(void) const;
-    virtual void use(ICharacter &target);
+    ~Character(void);
+
+    std::string const &getName() const;
+    void equip(AMateria *m);
+    void unequip(int idx);
+    void use(int idx, ICharacter& target);
 
 private:
-    Ice(Ice const &src);
-    Ice &operator=(Ice const &src);
+    AMateria *_inventory[MAX_SLOTS];
+    std::string _name;
 
 };
 

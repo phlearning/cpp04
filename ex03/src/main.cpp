@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 12:27:07 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 13:13:24 by pvong            ###   ########.fr       */
+/*   Created: 2023/11/21 17:53:53 by pvong             #+#    #+#             */
+/*   Updated: 2023/11/21 17:57:31 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Character.hpp"
+#include "ICharacter.hpp"
+#include <iostream>
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+int main(void) {
 
-class Dog : public Animal {
+    Character test;
+    Ice ice;
 
-public:
-    Dog(void);
-    Dog(const Dog &src);
-    Dog &operator=(const Dog &other);
-    virtual ~Dog(void);
-    
-    virtual void makeSound(void) const;
-    void setIdea(std::string idea, int index);
-    std::string getIdea(int index) const;
+    ice.use(test);
 
-private:
-    Brain* _brain;
-
-};
-
-#endif
+    return (0);
+}

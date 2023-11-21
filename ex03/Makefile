@@ -6,7 +6,7 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:24:45 by pvong             #+#    #+#              #
-#    Updated: 2023/11/17 13:36:09 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/21 18:00:46 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,10 @@ HEADERS = $(wildcard $(INC_DIR)/*.hpp)
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = AMateria.cpp \
-
+SRC = main.cpp \
+		Ice.cpp \
+		Character.cpp \
+		AMateria.cpp
 
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))

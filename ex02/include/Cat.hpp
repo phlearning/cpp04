@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:04 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 14:39:35 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:27:52 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public:
     virtual ~Cat(void);
     
     virtual void makeSound(void) const;
+    void setIdea(std::string idea, int index);
+    std::string getIdea(int index) const;
 
 private:
     Brain* _brain;

@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:49 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 14:43:52 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:26:54 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ Cat::~Cat(void) {
 
 void Cat::makeSound(void) const {
     std::cout << COLOR("Cat", CYAN) << ": Meoooowww!" << std::endl;
+}
+
+void Cat::setIdea(std::string idea, int index) {
+    this->_brain->setIdea(idea, index);
+}
+
+std::string Cat::getIdea(int index) const {
+    return (this->_brain->getIdea(index));
 }
 
 /* -------------------------------------------------------------------------- */

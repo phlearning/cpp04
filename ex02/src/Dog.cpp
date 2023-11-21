@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:46 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 14:44:00 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:27:21 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,12 @@ Dog::~Dog(void) {
 
 void Dog::makeSound(void) const {
     std::cout << COLOR("Dog", CYAN) << ": Woof! Woof!" << std::endl;
+}
+
+void Dog::setIdea(std::string idea, int index) {
+    this->_brain->setIdea(idea, index);
+}
+
+std::string Dog::getIdea(int index) const {
+    return (this->_brain->getIdea(index));
 }

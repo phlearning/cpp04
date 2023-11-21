@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:02 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/16 15:31:58 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:26:09 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ public:
 
     virtual void makeSound(void) const = 0;
     std::string getType(void) const;
+    virtual void setIdea(std::string idea, int index) = 0;
+    virtual std::string getIdea(int index) const = 0;
 
 protected:
     std::string _type;

@@ -6,16 +6,12 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:38:39 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/17 13:41:14 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 15:04:01 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MYCOLORS_HPP
 #define MYCOLORS_HPP
-
-#ifndef SHOWMSG
-#define SHOWMSG 1
-#endif
 
 #include <iostream>
 

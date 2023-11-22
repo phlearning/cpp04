@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:53:53 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/22 13:54:56 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:22:22 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,20 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
+// NEED TO CHECK COPY CONSTRUCTOR AND ASSIGNMENT OF CHARACTER IF THERE IS A LEAK OR NOT
+
 int main(void) {
 
-    ICharacter *myCharacter = new Character("Mike");
-    Ice ice;
-    Cure cure;
+    ICharacter *m = new Character("Mike");
 
-    ice.use(*myCharacter);
-    Ice *myIceP = new Ice();
-    myCharacter->equip(new Ice());
-    myCharacter->unequip(0);
-    delete myIceP;
-    cure.use(*myCharacter);
+    m->equip(new Ice());
+    m->equip(new Cure());
+    m->equip(new Cure());
+    m->equip(new Cure());
+    m->unequip(4);
+    m->equip(new Cure());
+    m->displayInventoryItems();
     
-    delete myCharacter;
+    delete m;
     return (0);
-}
+}   

@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:44:17 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/22 14:02:20 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:08:05 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,19 @@ public:
     virtual void unequip(int idx);
     virtual void use(int idx, ICharacter& target);
 
+    virtual void equipGroundItems(int idx);
+    virtual void displayGroundItems(void) const;
+    virtual void displayInventoryItems(void) const;
+
 private:
     AMateria *_inventory[MAX_SLOTS];
     AMateria *_unequipped[MAX_SLOTS];
+    int _inventoryIndex;
     int _unequippedIndex;
     std::string _name;
+    void shiftUnequipped(int idx);
     void deleteOldestUnequipped(void);
+    void leaveOnTheGround(AMateria *m);
 
 };
 

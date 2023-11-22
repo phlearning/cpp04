@@ -6,7 +6,7 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:24:45 by pvong             #+#    #+#              #
-#    Updated: 2023/11/22 13:11:47 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/22 16:09:01 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = main.cpp \
 		Character.cpp \
 		Cure.cpp \
 		Ice.cpp \
+		MateriaSource.cpp 
 
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))

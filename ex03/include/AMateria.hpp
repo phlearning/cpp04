@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:35:19 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 18:01:17 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 13:10:26 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "ICharacter.hpp"
 #include "myColors.hpp"
 #include <string>
+#include <iostream>
+
+#ifndef SHOWMSG
+#define SHOWMSG 0
+#endif
+
+class ICharacter;
 
 class AMateria {
 

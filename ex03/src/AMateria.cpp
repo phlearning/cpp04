@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:35:48 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 15:18:23 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 12:53:37 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ AMateria::~AMateria(void) {
     if (SHOWMSG) {
         std::cout << COLOR("AMateria destructor called.", RED) << std::endl;
     }
+}
+
+std::string const &AMateria::getType() const {
+    return (this->_type);
 }
 
 void AMateria::use(ICharacter &target) {

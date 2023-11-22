@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:44:17 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 17:59:24 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 14:02:20 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "ICharacter.hpp"
 #include <string>
+#include <iostream>
 
 #define MAX_SLOTS 4
 
@@ -28,14 +29,17 @@ public:
 
     ~Character(void);
 
-    std::string const &getName() const;
-    void equip(AMateria *m);
-    void unequip(int idx);
-    void use(int idx, ICharacter& target);
+    virtual std::string const &getName() const;
+    virtual void equip(AMateria *m);
+    virtual void unequip(int idx);
+    virtual void use(int idx, ICharacter& target);
 
 private:
     AMateria *_inventory[MAX_SLOTS];
+    AMateria *_unequipped[MAX_SLOTS];
+    int _unequippedIndex;
     std::string _name;
+    void deleteOldestUnequipped(void);
 
 };
 

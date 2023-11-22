@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:54:55 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 17:56:50 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/22 13:26:40 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ AMateria *Ice::clone(void) const {
 }
 
 void Ice::use(ICharacter &target) {
-    std::cout << _type << ": \"" << "* shoots an ice bolt at " << target.getName() << " *\"" << std::endl;
+    std::string myType = this->_type;
+    myType[0] = toupper(myType[0]);
+    std::cout << myType << ": \"" << "* shoots an ice bolt at " << target.getName() << " *\"" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:24:45 by pvong             #+#    #+#              #
-#    Updated: 2023/11/21 18:00:46 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/22 13:11:47 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,10 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 SRC = main.cpp \
-		Ice.cpp \
+		AMateria.cpp \
 		Character.cpp \
-		AMateria.cpp
+		Cure.cpp \
+		Ice.cpp \
 
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))

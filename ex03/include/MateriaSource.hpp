@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:21:51 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/22 16:12:35 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/23 11:25:15 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ private:
     AMateria *_materiaBag[SLOTS];
     int _materiaIndex;
 
-}
+};
 
 #endif

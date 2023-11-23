@@ -6,26 +6,38 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:53:53 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/23 11:36:54 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:25:12 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
 #include "Character.hpp"
+#include "Cure.hpp"
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
+#include "Ice.hpp"
 #include "MateriaSource.hpp"
 #include <iostream>
 
-// NEED TO CHECK COPY CONSTRUCTOR AND ASSIGNMENT OF CHARACTER IF THERE IS A LEAK OR NOT
+int main() {
+    IMateriaSource *src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
 
-int main(void) {
 
-    ICharacter *m = new Character("Mike");
-    MateriaSource test;
+    ICharacter *me = new Character("me");
+    AMateria *tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
 
-    delete m;
-    return (0);
-}   
+    ICharacter *bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+    
+    delete bob;
+    delete me;
+    delete src;
+    return 0;
+}

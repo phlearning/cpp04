@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:44:17 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/22 16:08:05 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/23 15:48:10 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
     Character(const Character &src);
     Character &operator=(const Character &other);
 
-    ~Character(void);
+    virtual ~Character(void);
 
     virtual std::string const &getName() const;
     virtual void equip(AMateria *m);
@@ -41,9 +41,9 @@ public:
 private:
     AMateria *_inventory[MAX_SLOTS];
     AMateria *_unequipped[MAX_SLOTS];
+    std::string _name;
     int _inventoryIndex;
     int _unequippedIndex;
-    std::string _name;
     void shiftUnequipped(int idx);
     void deleteOldestUnequipped(void);
     void leaveOnTheGround(AMateria *m);

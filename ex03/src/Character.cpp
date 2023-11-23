@@ -6,21 +6,33 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:57:55 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/22 16:08:43 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/23 16:10:08 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(void) : _name("Default_Name") {
+Character::Character(void) : _name("Default_Name"), _inventoryIndex(0), _unequippedIndex(0) {
     if (SHOWMSG) {
         std::cout << COLOR("Character default constructor called.", GREEN) << std::endl;
     }
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        this->_inventory[i] = nullptr;
+    }
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        this->_unequipped[i] = nullptr;
+    }
 }
 
-Character::Character(std::string name) : _name(name) {
+Character::Character(std::string name) : _name(name), _inventoryIndex(0), _unequippedIndex(0) {
     if (SHOWMSG) {
         std::cout << COLOR("Character: ", GREEN) << COLOR(name, CYAN) << " constructor called." << std::endl;
+    }
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        this->_inventory[i] = nullptr;
+    }
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        this->_unequipped[i] = nullptr;
     }
 }
 
@@ -32,6 +44,10 @@ Character::Character(const Character &src) : _name(src._name) {
         this->_inventory[i] = (src._inventory[i] != nullptr) ? src._inventory[i]->clone() : nullptr;
     }
     this->_inventoryIndex = src._inventoryIndex;
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        this->_unequipped[i] = (src._unequipped[i] != nullptr) ? src._unequipped[i]->clone() : nullptr;
+    }
+    this->_unequippedIndex = src._unequippedIndex;
 }
 
 Character &Character::operator=(const Character &other) {
@@ -44,6 +60,11 @@ Character &Character::operator=(const Character &other) {
         this->_inventory[i] = (other._inventory[i] != nullptr) ? other._inventory[i]->clone() : nullptr;
     }
     this->_inventoryIndex = other._inventoryIndex;
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        delete this->_unequipped[i];
+        this->_unequipped[i] = (other._unequipped[i] != nullptr) ? other._unequipped[i]->clone() : nullptr;
+    }
+    this->_unequippedIndex = other._unequippedIndex;
     return (*this);
 }
 
@@ -53,13 +74,13 @@ Character::~Character(void) {
     if (SHOWMSG) {
         std::cout << COLOR("Character destructor called.", RED) << std::endl;
     }
-    for (int i = 0; i < MAX_SLOTS; i++) {
+    for (int i = 0; i < this->_inventoryIndex; i++) {
         delete this->_inventory[i];
         this->_inventory[i] = nullptr;
     }
-    for (int i = 0; i < MAX_SLOTS; i++) {
+    for (int i = 0; i < this->_unequippedIndex; i++) {
         delete this->_unequipped[i];
-        this->_inventory[i] = nullptr;
+        this->_unequipped[i] = nullptr;
     }
 }
 
@@ -130,7 +151,7 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter &target) {
-    if (idx >= 0 && idx < MAX_SLOTS && this->_inventory[idx] != nullptr) {
+    if (idx >= 0 && idx < this->_inventoryIndex && this->_inventory[idx] != nullptr) {
         this->_inventory[idx]->use(target);
     }
 }

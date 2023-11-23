@@ -6,13 +6,13 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:30:22 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/23 11:38:36 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/23 14:38:49 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(void) {
+MateriaSource::MateriaSource(void) : _materiaIndex(0) {
     if (SHOWMSG) {
         std::cout << COLOR("MateriaSource default constructor called.", GREEN) << std::endl;
     }
@@ -56,9 +56,10 @@ void MateriaSource::learnMateria(AMateria *m) {
         return ;
     }
     for (int i = 0; i < SLOTS; i++) {
-        if (this->_materiaBag[i] != nullptr) {
+        if (this->_materiaBag[i] == nullptr) {
             this->_materiaBag[i] = m;
             this->_materiaIndex++;
+            break ;
         }
     }
 }
@@ -67,8 +68,19 @@ AMateria *MateriaSource::createMateria(std::string const &type) {
 
     for (int i = 0; i < this->_materiaIndex; i++) {
         if (this->_materiaBag[i]->getType() == type) {
-            return (this->_materiaBag[i]);
+            return (this->_materiaBag[i]->clone());
         }
     }
     return (0);
+}
+
+void MateriaSource::displayMateria(void) const {
+    std::cout << COLOR("MateriaBag: ", YELLOW);
+    for (int i = 0; i < this->_materiaIndex; i++) {
+        std::cout << this->_materiaBag[i]->getType();
+        if (i < this->_materiaIndex - 1) {
+            std::cout << " ";
+        }
+    }
+    std::cout << std::endl;
 }

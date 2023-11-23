@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:21:51 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/23 11:25:15 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/23 14:34:17 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
 #define SLOTS 4
 
@@ -25,6 +26,8 @@ public:
 
     virtual void learnMateria(AMateria *);
     virtual AMateria *createMateria(std::string const &type);
+
+    virtual void displayMateria(void) const;
 
 private:
     MateriaSource(const MateriaSource &src);

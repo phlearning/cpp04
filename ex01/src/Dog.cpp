@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:46 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 13:13:36 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:42:30 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ Dog::Dog(void) : Animal() {
     this->_brain = new Brain();
 }
 
-Dog::Dog(const Dog &src) : Animal(src) {
+Dog::Dog(const Dog &src) {
     if (SHOWMSG) {
         std::cout << COLOR("Dog copy constructor called.", GREEN) << std::endl;
     }
-    this->_brain = src._brain;
+    this->_brain = new Brain(*src._brain);
+    this->_type = src.getType();
 }
 
 Dog &Dog::operator=(const Dog &other) {

@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:21:51 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/23 14:34:17 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/24 10:56:02 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
     virtual AMateria *createMateria(std::string const &type);
 
     virtual void displayMateria(void) const;
+    virtual void forgetOldestMateriaSource(void);
 
 private:
     MateriaSource(const MateriaSource &src);

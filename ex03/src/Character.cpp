@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:57:55 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/23 16:10:08 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/24 13:19:37 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,9 @@ Character::~Character(void) {
     if (SHOWMSG) {
         std::cout << COLOR("Character destructor called.", RED) << std::endl;
     }
-    for (int i = 0; i < this->_inventoryIndex; i++) {
+    for (int i = 0; i < MAX_SLOTS; i++) {
         delete this->_inventory[i];
         this->_inventory[i] = nullptr;
-    }
-    for (int i = 0; i < this->_unequippedIndex; i++) {
         delete this->_unequipped[i];
         this->_unequipped[i] = nullptr;
     }
@@ -90,7 +88,7 @@ std::string const &Character::getName() const {
 
 void Character::equip(AMateria *m) {
 
-    if (this->_inventoryIndex == MAX_SLOTS) {
+    if (this->_inventoryIndex >= MAX_SLOTS) {
         std::cout << COLOR(this->getName(), CYAN) << "'s inventory is full. Cannot equip anymore." << std::endl;
         leaveOnTheGround(m);
         return ;
@@ -130,23 +128,23 @@ void Character::unequip(int idx) {
     if (idx >= 0 && idx < MAX_SLOTS) {
         if (this->_inventory[idx] != nullptr) {
             std::cout << COLOR(this->getName(), CYAN) << " has dropped " << COLOR(this->_inventory[idx]->getType(), CYAN) << " materia to the ground." << std::endl;
-            
 
             this->_inventoryIndex--;
             AMateria *unequipped = this->_inventory[idx];
+            this->_inventory[idx] = nullptr;
             
             if (this->_unequippedIndex < MAX_SLOTS) {
-                this->_unequipped[_unequippedIndex] = unequipped;
+                this->_unequipped[this->_unequippedIndex] = unequipped;
                 this->_unequippedIndex++;
             } else {
                 deleteOldestUnequipped();
-                this->_unequipped[_unequippedIndex - 1] = unequipped;
+                this->_unequipped[this->_unequippedIndex - 1] = unequipped;
             }
-
+        } else {
+            std::cout << COLOR("Error: ", RED) << "Unequip: wrong index." << std::endl;
         }
-        this->_inventory[idx] = nullptr;
     } else {
-        std::cout << COLOR("Error: ", RED) << "Unequip: wrong index (1 - " << this->_inventoryIndex << ")." << std::endl;
+        std::cout << COLOR("Error: ", RED) << "Unequip: wrong index (1 - " << MAX_SLOTS << ")." << std::endl;
     }
 }
 
@@ -160,7 +158,7 @@ void Character::use(int idx, ICharacter &target) {
 
 void Character::equipGroundItems(int idx) {
     if (idx >= 0 && idx < this->_unequippedIndex) {
-        equip(_unequipped[idx]);
+        equip(this->_unequipped[idx]);
     }
 }
 
@@ -196,12 +194,13 @@ void Character::displayInventoryItems(void) const {
 
 void Character::deleteOldestUnequipped() {
     if (this->_unequippedIndex > 0) {
-        delete _unequipped[0];
+        delete this->_unequipped[0];
+        this->_unequipped[0] = nullptr;
         for (int i = 0; i < this->_unequippedIndex - 1; i++) {
             this->_unequipped[i] = _unequipped[i + 1];
         }
         this->_unequipped[this->_unequippedIndex - 1] = nullptr;
-        this->_unequippedIndex--;
+        // this->_unequippedIndex--;
     }
 }
 

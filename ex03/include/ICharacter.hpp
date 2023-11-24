@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:39:27 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/22 16:07:50 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/24 13:20:31 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ public:
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter &target) = 0;
 
-    virtual void equipGroundItems(int idx) = 0;
-    virtual void displayGroundItems() const = 0;
-    virtual void displayInventoryItems(void) const = 0;
+    // virtual void equipGroundItems(int idx) = 0;
+    // virtual void displayGroundItems() const = 0;
+    // virtual void displayInventoryItems(void) const = 0;
 
 };
 

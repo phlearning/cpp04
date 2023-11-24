@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:49 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 13:13:32 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:31:41 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ Cat::Cat(void) : Animal() {
     this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat &src) : Animal(src) {
+Cat::Cat(const Cat &src) {
     if (SHOWMSG) {
         std::cout << COLOR("Cat copy constructor called.", GREEN) << std::endl;
     }
-    this->_brain = src._brain;
+    this->_type = src.getType();
+    this->_brain = new Brain(*src._brain);
 }
 
 Cat &Cat::operator=(const Cat &other) {

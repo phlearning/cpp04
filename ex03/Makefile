@@ -6,7 +6,7 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:24:45 by pvong             #+#    #+#              #
-#    Updated: 2023/11/23 15:40:13 by pvong            ###   ########.fr        #
+#    Updated: 2023/11/24 13:29:25 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = amateria
 
 # Compilation 
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 # -g3 -fsanitize=address
 
 # Headers
 

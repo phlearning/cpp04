@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:26:39 by pvong             #+#    #+#             */
-/*   Updated: 2023/11/21 13:39:25 by pvong            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:44:49 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,23 @@ int main() {
     delete j; // should not create a leak
     delete i;
     
-    // Cat c;
+/* ------------------------------ Copy and Idea ----------------------------- */
+    // MY_SEP();
 
+    // Cat *catP = new Cat();
+    // catP->setIdea("myCatIdea", 0);
+    // Cat *catCopy = new Cat(*catP);    
+    // std::cout << "myCatCopy idea: " << catCopy->getIdea(0) << std::endl;
+
+    // delete catCopy;
+    // delete catP;
+    
+    // Cat c;
     // c.setIdea("hello", 0);
     // std::cout << "idea: " << c.getIdea(0) << std::endl;
-    // std::cout << "idea: " << c.getIdea(111) << std::endl;
+    // std::cout << "idea: " << c.getIdea(111) << std::endl; // should output an error of index
+    // MY_SEP();
+/* -------------------------------------------------------------------------- */
 
     int N = 11;
     Animal *animalGroup[N];
